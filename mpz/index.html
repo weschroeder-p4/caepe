@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Um guia prático para médicos que querem entender a perícia médica do zero e descobrir uma nova forma de atuar com mais autonomia, flexibilidade e qualidade de vida.">
+<title>Manual da Perícia do Zero — Dra. Caroline Daitx | CAEPE</title>
+
+<!-- DNS prefetch + preconnect fontes -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Preload hero image (above the fold — crítica) -->
+<link rel="preload" as="image" href="hero-mockup.webp" type="image/webp" fetchpriority="high">
+
+<!-- Fontes carregadas de forma não-bloqueante (evita render-blocking) -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+
+<style>
+/* === RESET MÍNIMO === */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{overflow-x:hidden;-webkit-overflow-scrolling:touch}
+img{max-width:100%;display:block;height:auto;content-visibility:auto}
+a{text-decoration:none;color:inherit;-webkit-tap-highlight-color:transparent}
+button,a{touch-action:manipulation}
+
+/* === VARIÁVEIS === */
+:root{
+  --white:#fff;
+  --bg:#FAFAF8;
+  --bg-alt:#F4F1EC;
+  --bg-deep:#EDE9E1;
+  --text:#1C1C2A;
+  --text-mid:#3D3D52;
+  --text-soft:#6B6B80;
+  --text-muted:#9A9AAE;
+  --gold:#B08A2F;
+  --gold-b:#C9A84C;
+  --gold-l:#E2C36E;
+  --gold-bg:rgba(176,138,47,.08);
+  --gold-br:rgba(176,138,47,.22);
+  --red-bg:rgba(185,64,64,.06);
+  --red-br:rgba(185,64,64,.20);
+  --red:#b34040;
+  --r:10px;
+  --rl:18px;
+  --sh-s:0 2px 12px rgba(0,0,0,.06);
+  --sh-m:0 6px 28px rgba(0,0,0,.09);
+  --sh-l:0 12px 48px rgba(0,0,0,.13);
+}
+
+/* === BASE === */
+body{font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;text-rendering:optimizeSpeed}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.2;color:var(--text)}
+
+/* === LAYOUT === */
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+.wrap-w{max-width:1080px;margin:0 auto;padding:0 20px}
+.sec{padding:72px 0}
+.sec--w{background:var(--white)}
+.sec--a{background:var(--bg-alt)}
+
+/* === UTILITÁRIOS === */
+.divider{width:52px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-l));margin:14px auto;border-radius:2px}
+.tag{display:inline-block;background:var(--gold-bg);border:1px solid var(--gold-br);color:var(--gold);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 13px;border-radius:40px;margin-bottom:14px}
+.sec-head{text-align:center;margin-bottom:44px}
+.sec-head h2{font-size:clamp(22px,4vw,36px);font-weight:700;margin-bottom:10px}
+.sec-head p{font-size:16px;color:var(--text-soft);max-width:560px;margin:0 auto}
+
+/* === BARRA TOPO === */
+.bar{background:var(--text);color:var(--gold-l);text-align:center;padding:9px 16px;font-size:13px;font-weight:600;letter-spacing:.3px}
+
+/* === HERO === */
+.hero{background:var(--white);padding:56px 0 64px;border-bottom:1px solid var(--bg-deep);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:52px;align-items:center}
+.hero-logo{font-family:'Playfair Display',serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+.hero-eye{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.hero h1{font-size:clamp(28px,4vw,48px);font-weight:900;margin-bottom:18px}
+.hero h1 span{color:var(--gold)}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:var(--text-mid);margin-bottom:28px;line-height:1.6}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap}
+.badge{display:flex;align-items:center;gap:6px;background:var(--bg-alt);border:1px solid var(--bg-deep);border-radius:40px;padding:7px 13px;font-size:12px;font-weight:500;color:var(--text-mid)}
+.hero-img{width:100%;aspect-ratio:4/5;max-height:500px;border-radius:var(--rl);overflow:hidden;object-fit:contain;filter:drop-shadow(0 0 36px rgba(176,138,47,.18)) drop-shadow(0 12px 32px rgba(0,0,0,.18))}
+
+/* === BOTÃO CTA === */
+.cta{display:inline-block;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-l) 50%,var(--gold) 100%);background-size:200% auto;color:#fff;font-family:'Inter',sans-serif;font-size:16px;font-weight:800;letter-spacing:.5px;padding:18px 44px;border-radius:50px;border:none;cursor:pointer;text-align:center;text-transform:uppercase;box-shadow:0 6px 24px rgba(176,138,47,.35);transition:transform .2s,box-shadow .2s,background-position .3s;animation:glow 2.8s ease-in-out infinite;min-height:48px}
+.cta:hover{background-position:right center;box-shadow:0 8px 36px rgba(176,138,47,.52);transform:translateY(-2px)}
+.cta:active{transform:translateY(0)}
+@keyframes glow{0%,100%{box-shadow:0 6px 24px rgba(176,138,47,.35)}50%{box-shadow:0 6px 36px rgba(176,138,47,.56)}}
+.cta-note{font-size:12px;color:var(--text-muted);margin-top:10px;text-align:center}
+
+/* === 2 COLUNAS === */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.two-img{width:100%;aspect-ratio:4/3;border-radius:var(--rl);overflow:hidden;box-shadow:var(--sh-m);object-fit:cover;display:block}
+.two-img--tall{aspect-ratio:3/4}
+/* Imagem sem card — expande livremente sem borda, sombra ou recorte */
+.two-img--free{border-radius:0!important;box-shadow:none!important;overflow:visible!important;aspect-ratio:auto!important;object-fit:contain!important;background:transparent!important;width:100%;max-width:100%}
+
+/* === DEPOIMENTOS === */
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
+.tcard{background:var(--white);border:1px solid var(--bg-deep);border-radius:var(--rl);padding:22px;box-shadow:var(--sh-s);transition:border-color .25s,box-shadow .25s}
+.tcard:hover{border-color:var(--gold-br);box-shadow:var(--sh-m)}
+.tcard-q{font-size:28px;color:var(--gold-b);opacity:.5;line-height:1;margin-bottom:8px;font-family:'Playfair Display',serif}
+.tcard-txt{font-size:13px;color:var(--text-mid);line-height:1.7;font-style:italic;margin-bottom:16px}
+.tcard-who{display:flex;align-items:center;gap:9px}
+.tcard-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-l));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:13px;flex-shrink:0}
+.tcard-name{font-size:13px;font-weight:600;color:var(--text)}
+.tcard-role{font-size:11px;color:var(--gold);margin-top:1px}
+.stars{display:flex;gap:2px;margin-bottom:9px}
+.star{color:var(--gold-b);font-size:12px}
+
+/* === DOR === */
+.pain-list{list-style:none;margin:20px 0}
+.pain-list li{display:flex;align-items:flex-start;gap:12px;padding:13px 0;border-bottom:1px solid var(--bg-deep);font-size:16px;color:var(--text-mid);line-height:1.5}
+.pain-list li:last-child{border-bottom:none}
+.px{width:23px;height:23px;border-radius:50%;background:var(--red-bg);border:1px solid var(--red-br);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:10px;color:var(--red)}
+.pain-hl{background:var(--gold-bg);border-left:3px solid var(--gold);border-radius:0 var(--r) var(--r) 0;padding:18px 22px;margin:20px 0;font-size:17px;font-weight:500;color:var(--text);font-style:italic;line-height:1.6}
+.pain-hl strong{color:var(--gold)}
+
+/* === PILLS === */
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.pill{background:var(--gold-bg);border:1px solid var(--gold-br);border-radius:40px;padding:7px 16px;font-size:13px;font-weight:500;color:var(--gold)}
+
+/* === STEPS — sequência horizontal === */
+.steps-row{display:flex;align-items:flex-start;gap:0;margin-top:48px;position:relative}
+.steps-row::before{content:'';position:absolute;top:23px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,transparent,var(--gold-br) 20%,var(--gold-br) 80%,transparent);z-index:0}
+.step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px;position:relative;z-index:1}
+.step-n{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-l));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:#fff;margin-bottom:18px;box-shadow:0 4px 14px rgba(176,138,47,.28);flex-shrink:0}
+.step-card{background:var(--white);border:1px solid var(--bg-deep);border-radius:var(--rl);padding:20px 16px;box-shadow:var(--sh-s);width:100%;transition:transform .2s,box-shadow .2s,border-color .2s}
+.step-card:hover{transform:translateY(-3px);box-shadow:var(--sh-m);border-color:var(--gold-br)}
+.step-card h3{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--text);margin-bottom:7px}
+.step-card p{font-size:12px;color:var(--text-soft);line-height:1.6}
+.step-arr{display:flex;align-items:center;padding-top:22px;flex-shrink:0;color:var(--gold-br);font-size:26px;font-weight:300}
+
+/* === PARA QUEM === */
+.for-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:32px}
+.for-item{display:flex;align-items:flex-start;gap:10px;background:var(--bg);border:1px solid var(--bg-deep);border-radius:var(--r);padding:13px 15px;transition:border-color .2s;min-height:48px}
+.for-item:hover{border-color:var(--gold-br)}
+.for-chk{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-l));display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:900;flex-shrink:0;margin-top:1px}
+.for-item p{font-size:14px;color:var(--text-mid);line-height:1.4}
+
+/* === BÔNUS === */
+.bonus-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:32px}
+.bonus{display:flex;align-items:center;gap:14px;background:var(--white);border:1px solid var(--bg-deep);border-radius:var(--rl);padding:16px 20px;box-shadow:var(--sh-s);transition:border-color .2s,box-shadow .2s}
+.bonus:hover{border-color:var(--gold-br);box-shadow:var(--sh-m)}
+.bonus-ico{font-size:22px;flex-shrink:0}
+.bonus-info{flex:1}
+.bonus-t{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px}
+.bonus-d{font-size:12px;color:var(--text-soft)}
+.bonus-p{text-align:right;flex-shrink:0}
+.bonus-old{font-size:11px;color:var(--text-muted);text-decoration:line-through}
+.bonus-val{font-size:12px;font-weight:700;color:var(--gold)}
+
+/* === OFERTA (dark box) === */
+.offer-wrap{padding:72px 0;background:var(--white)}
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;background:var(--text);border-radius:var(--rl);overflow:hidden;box-shadow:var(--sh-l)}
+.offer-img-col{background:var(--text);display:flex;align-items:center;justify-content:center;padding:36px 24px;min-height:380px;position:relative;overflow:hidden}
+/* Glow branco radial atrás do mockup */
+.offer-img-col::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 65% at 50% 52%,rgba(255,255,255,.13) 0%,rgba(255,255,255,.04) 45%,transparent 70%);pointer-events:none;z-index:0}
+.offer-img-col picture,.offer-img-col img{position:relative;z-index:1}
+.offer-txt{padding:44px 38px;display:flex;flex-direction:column;justify-content:center}
+.offer-badge{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-l));color:#fff;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:40px;margin-bottom:18px;width:fit-content}
+.offer-txt h2{font-size:clamp(17px,2.5vw,24px);font-weight:700;color:#fff;margin-bottom:17px}
+.offer-checks{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px}
+.offer-checks li{display:flex;align-items:center;gap:9px;font-size:14px;color:rgba(255,255,255,.78)}
+.offer-checks li::before{content:'✓';width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-l));color:#fff;font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.price-from{font-size:12px;color:rgba(255,255,255,.35);text-decoration:line-through;margin-bottom:2px}
+.price-note{font-size:10px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.price-big{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,50px);font-weight:900;color:#fff;line-height:1;margin-bottom:4px}
+.price-big span{font-size:clamp(16px,2.5vw,24px);color:var(--gold-l)}
+.price-cash{font-size:15px;color:var(--gold-l);font-weight:500;margin-bottom:22px}
+.offer-cta{color:var(--text)!important;background:linear-gradient(135deg,var(--gold-l) 0%,#f0d080 50%,var(--gold-l) 100%)!important;background-size:200% auto!important;font-size:14px!important;padding:16px 32px!important;margin:0!important;min-height:48px!important}
+.offer-note{color:rgba(255,255,255,.32)!important;text-align:left!important}
+.trust-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:18px}
+.trust-i{display:flex;align-items:center;gap:5px;font-size:11px;color:rgba(255,255,255,.35)}
+
+/* === SÉRIO === */
+.ser-title{font-size:clamp(20px,3.5vw,32px);font-weight:700;color:var(--text);margin-bottom:20px}
+.ser-p{font-size:16px;color:var(--text-mid);line-height:1.8;margin-bottom:14px}
+.ser-p strong{color:var(--text)}
+.ser-list{list-style:none;margin:16px 0;background:var(--red-bg);border:1px solid var(--red-br);border-radius:var(--r);padding:18px 22px}
+.ser-list li{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--text-mid);padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04)}
+.ser-list li:last-child{border-bottom:none}
+.ser-list li::before{content:'›';color:var(--red);font-size:19px;font-weight:700}
+
+/* === EXPERT === */
+.expert-card{display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:stretch;background:var(--bg);border:1px solid var(--bg-deep);border-radius:var(--rl);padding:36px;box-shadow:var(--sh-m)}
+.expert-photo-w{position:relative;display:flex;flex-direction:column}
+.expert-photo{width:220px;flex:1;min-height:280px;border-radius:var(--rl);overflow:hidden;box-shadow:var(--sh-s);background:var(--bg-alt)}
+.expert-photo img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.expert-badge{position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--gold-l));color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:40px;white-space:nowrap}
+.expert-tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.expert-name{font-size:clamp(18px,2.5vw,26px);font-weight:900;color:var(--text);margin-bottom:4px}
+.expert-crm{font-size:11px;color:var(--text-muted);margin-bottom:14px;font-style:italic}
+.expert-bio{font-size:13px;color:var(--text-soft);line-height:1.8;margin-bottom:9px}
+.achv-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px}
+.achv{background:var(--gold-bg);border:1px solid var(--gold-br);border-radius:40px;padding:3px 10px;font-size:11px;color:var(--gold);font-weight:500}
+
+/* === 2ª OFERTA === */
+.offer2-grid{display:grid;grid-template-columns:1fr 1fr;background:var(--text);border-radius:var(--rl);overflow:hidden;box-shadow:var(--sh-l)}
+.offer2-txt{padding:44px 38px;display:flex;flex-direction:column;justify-content:center}
+.offer2-img-col{background:var(--text);display:flex;align-items:center;justify-content:center;padding:36px 24px;min-height:380px;position:relative;overflow:hidden}
+.offer2-img-col::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 65% at 50% 52%,rgba(255,255,255,.13) 0%,rgba(255,255,255,.04) 45%,transparent 70%);pointer-events:none;z-index:0}
+.offer2-img-col picture,.offer2-img-col img{position:relative;z-index:1}
+
+/* === FAQ === */
+.faq-list{list-style:none;display:flex;flex-direction:column;gap:2px;margin-top:40px}
+.faq-item{background:var(--white);border:1px solid var(--bg-deep);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-s)}
+.faq-item summary{list-style:none;padding:17px 20px;font-size:15px;font-weight:600;color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;transition:color .2s;min-height:48px}
+.faq-item summary:hover,.faq-item[open] summary{color:var(--gold)}
+.faq-item summary::after{content:'+';font-size:21px;color:var(--gold);font-weight:300;flex-shrink:0;transition:transform .3s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-body{padding:13px 20px 17px;font-size:14px;color:var(--text-soft);line-height:1.7;border-top:1px solid var(--bg-deep)}
+
+/* === FOOTER === */
+footer{background:var(--text);padding:40px 0 24px;text-align:center}
+.ft-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--gold-l);letter-spacing:2px;margin-bottom:6px}
+.ft-sub{font-size:12px;color:rgba(255,255,255,.30);margin-bottom:18px}
+.ft-links{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-bottom:20px}
+.ft-links a{font-size:13px;color:rgba(255,255,255,.48);transition:color .2s}
+.ft-links a:hover{color:var(--gold-l)}
+.ft-legal{font-size:11px;color:rgba(255,255,255,.24);max-width:520px;margin:0 auto;line-height:1.6;padding-top:16px;border-top:1px solid rgba(255,255,255,.05)}
+
+/* === STICKY BAR mobile === */
+/* Sem backdrop-filter (caro em mobile) — usa fundo sólido semitransparente */
+.sticky{display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.98);border-top:1px solid var(--bg-deep);padding:10px 16px;z-index:999;box-shadow:0 -3px 16px rgba(0,0,0,.07);transform:translateZ(0);-webkit-transform:translateZ(0)}
+.sticky-in{display:flex;align-items:center;gap:10px;max-width:480px;margin:0 auto}
+.sticky-p{flex-shrink:0}
+.sticky-s{font-size:10px;color:var(--text-muted)}
+.sticky-v{font-size:17px;font-weight:800;color:var(--gold);line-height:1}
+.sticky .cta{flex:1;padding:12px 16px;font-size:13px;min-height:48px}
+
+/* ============================================
+   MOBILE — breakpoint 768px
+============================================ */
+@media(max-width:768px){
+  body{padding-bottom:72px} /* espaço para sticky bar */
+  .sticky{display:block}
+  .sec{padding:48px 0}
+  .wrap,.wrap-w{padding:0 18px}
+
+  /* Hero */
+  .hero{padding:36px 0 44px}
+  .hero-grid{grid-template-columns:1fr;gap:28px}
+  .hero-img{max-height:280px;aspect-ratio:3/4;margin:0 auto;width:75%}
+  .hero h1{font-size:clamp(26px,7vw,38px)}
+  .hero-sub{font-size:15px}
+  .badge{font-size:11px;padding:6px 11px}
+  .hero-badges{gap:6px}
+
+  /* Depoimentos 1 coluna */
+  .tgrid{grid-template-columns:1fr}
+
+  /* 2 colunas stack, imagem sempre primeiro */
+  .two{grid-template-columns:1fr;gap:24px}
+  .two>*:first-child{order:1}
+  .two>*:last-child{order:2}
+  /* forçar imagem sempre no topo no mobile */
+  .two picture,.two .two-img,.two .two-img--tall{order:-1!important}
+  .two-img,.two-img--tall{aspect-ratio:16/9;max-height:220px;border-radius:var(--r)}
+  /* imagem livre: sem recorte no mobile */
+  .two-img--free{aspect-ratio:auto!important;max-height:none!important;border-radius:0!important}
+
+  /* Steps vertical */
+  .steps-row{flex-direction:column;gap:10px}
+  .steps-row::before{display:none}
+  .step{flex-direction:row;text-align:left;align-items:flex-start;gap:14px;padding:0}
+  .step-n{flex-shrink:0;margin-bottom:0}
+  .step-card{padding:14px 16px}
+  .step-arr{display:none}
+
+  /* Para quem 1 coluna */
+  .for-grid{grid-template-columns:1fr}
+  .for-item{min-height:52px} /* touch target */
+
+  /* Bônus preço abaixo */
+  .bonus{flex-wrap:wrap;gap:10px}
+  .bonus-p{width:100%;text-align:left;padding-top:0}
+
+  /* Oferta stack */
+  .offer-grid,.offer2-grid{grid-template-columns:1fr}
+  .offer-img-col,.offer2-img-col{min-height:220px;padding:28px 20px;order:-1}
+  .offer-txt,.offer2-txt{padding:28px 20px}
+
+  /* Expert stack */
+  .expert-card{grid-template-columns:1fr;text-align:center;padding:24px 18px;gap:24px}
+  .expert-photo-w{margin:0 auto;width:170px}
+  .expert-photo{width:170px;min-height:210px;flex:none}
+  .achv-row{justify-content:center}
+
+  /* CTA largura total — touch target mínimo 52px */
+  .cta{width:100%;max-width:400px;font-size:15px;padding:16px 24px;min-height:52px}
+
+  /* FAQ — touch target adequado */
+  .faq-item summary{font-size:14px;padding:16px;min-height:52px}
+
+  .sec-head{margin-bottom:32px}
+  .sec-head h2{font-size:clamp(20px,5.5vw,30px)}
+
+  .offer-wrap{padding:48px 0}
+
+  /* Reduz sombras em mobile (performance) */
+  .tcard,.bonus,.step-card{box-shadow:0 1px 8px rgba(0,0,0,.06)}
+  .expert-card{box-shadow:0 2px 14px rgba(0,0,0,.08)}
+}
+
+@media(max-width:420px){
+  .wrap,.wrap-w{padding:0 14px}
+  .hero h1{font-size:clamp(24px,7.5vw,32px)}
+  .hero-sub{font-size:14px}
+  .offer-txt,.offer2-txt{padding:20px 16px}
+  .price-big{font-size:clamp(28px,8vw,42px)}
+  .bar{font-size:12px;padding:8px 12px}
+  .sec{padding:40px 0}
+  .hero{padding:28px 0 36px}
+  .hero-img{width:70%;max-height:240px}
+  /* pain list mais compacta */
+  .pain-list li{font-size:15px;padding:11px 0}
+}
+
+/* === ANIMAÇÃO SCROLL === */
+.js-fade{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;will-change:opacity,transform}
+.js-fade.visible{opacity:1;transform:translateY(0);will-change:auto}
+
+/* === PERFORMANCE: content-visibility para seções abaixo do fold === */
+section.sec,.offer-wrap{content-visibility:auto;contain-intrinsic-size:0 500px}
+
+/* === ACESSIBILIDADE: respeita preferência de movimento reduzido === */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .js-fade{opacity:1!important;transform:none!important;transition:none!important}
+  .cta{animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">⚡ Condição especial por tempo limitado — Acesso imediato após a compra</div>
+
+<!-- HERO -->
+<section class="hero">
+<div class="wrap-w">
+<div class="hero-grid">
+  <div>
+    <p class="hero-logo">CAEPE — Centro Avançado de Estudos Periciais</p>
+    <p class="hero-eye">Novo guia prático para médicos</p>
+    <h1>Manual da Perícia<br><span>do Zero</span></h1>
+    <p class="hero-sub">Como começar uma nova atuação médica <strong>sem abandonar a medicina</strong> — e recuperar o controle da sua agenda.</p>
+    <div class="hero-badges">
+      <span class="badge">📖 Manual prático e direto ao ponto</span>
+      <span class="badge">⚡ Acesso imediato</span>
+      <span class="badge">🎯 Primeiros passos para mais autonomia</span>
+    </div>
+  </div>
+  <div>
+    <picture>
+      <source srcset="hero-mockup.webp" type="image/webp">
+      <img src="hero-mockup.png" alt="Manual da Perícia do Zero" class="hero-img"
+           width="420" height="525" fetchpriority="high" decoding="sync">
+    </picture>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="sec sec--a">
+<div class="wrap-w">
+<div class="sec-head">
+  <span class="tag">Depoimentos</span>
+  <h2>Médicos que começaram a enxergar<br>uma nova possibilidade</h2>
+  <div class="divider"></div>
+</div>
+<div class="tgrid">
+  <div class="tcard js-fade"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><div class="tcard-q">"</div><p class="tcard-txt">Eu achava que perícia médica era algo extremamente distante da minha realidade. O manual me mostrou um caminho muito mais claro e possível.</p><div class="tcard-who"><div class="tcard-av">R</div><div><p class="tcard-name">Ricardo M.</p><p class="tcard-role">Clínico Geral</p></div></div></div>
+  <div class="tcard js-fade"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><div class="tcard-q">"</div><p class="tcard-txt">A sensação que eu tive foi de finalmente visualizar uma saída da rotina de plantão sem precisar abandonar a medicina.</p><div class="tcard-who"><div class="tcard-av">F</div><div><p class="tcard-name">Fernanda A.</p><p class="tcard-role">Médica Intensivista</p></div></div></div>
+  <div class="tcard js-fade"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><div class="tcard-q">"</div><p class="tcard-txt">Material extremamente direto. Sem enrolação, sem promessa absurda. Só clareza sobre como funciona a área.</p><div class="tcard-who"><div class="tcard-av">E</div><div><p class="tcard-name">Eduardo L.</p><p class="tcard-role">Ortopedista</p></div></div></div>
+  <div class="tcard js-fade"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><div class="tcard-q">"</div><p class="tcard-txt">Depois que comecei a entender a perícia médica, percebi que o problema nunca foi a medicina. Era o modelo de vida que eu estava vivendo.</p><div class="tcard-who"><div class="tcard-av">C</div><div><p class="tcard-name">Camila R.</p><p class="tcard-role">Cardiologista</p></div></div></div>
+  <div class="tcard js-fade"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><div class="tcard-q">"</div><p class="tcard-txt">O que mais me chamou atenção foi entender que existe uma atuação mais técnica, organizada e com muito mais autonomia.</p><div class="tcard-who"><div class="tcard-av">F</div><div><p class="tcard-name">Felipe S.</p><p class="tcard-role">Médico do Trabalho</p></div></div></div>
+  <div class="tcard js-fade"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><div class="tcard-q">"</div><p class="tcard-txt">Pela primeira vez em muito tempo eu senti que talvez exista uma forma mais inteligente de continuar vivendo da medicina.</p><div class="tcard-who"><div class="tcard-av">J</div><div><p class="tcard-name">Juliana T.</p><p class="tcard-role">Pediatra</p></div></div></div>
+</div>
+</div>
+</section>
+
+<!-- DOR — imagem esq -->
+<section class="sec sec--a">
+<div class="wrap-w">
+<div class="two">
+  <picture>
+    <source srcset="medico-cansado.webp" type="image/webp">
+    <img src="medico-cansado.jpg" alt="Médico cansado" class="two-img two-img--tall"
+         width="450" height="600" loading="lazy" decoding="async">
+  </picture>
+  <div>
+    <span class="tag" style="display:block;width:fit-content">Você se identifica?</span>
+    <h2 style="font-size:clamp(22px,3.5vw,36px);font-weight:700;margin-bottom:18px">A medicina não deveria<br>consumir a sua vida inteira.</h2>
+    <ul class="pain-list">
+      <li><span class="px">✕</span>Plantões seguidos sem ver a luz no fim do túnel</li>
+      <li><span class="px">✕</span>Agenda sem controle — você trabalha para a agenda</li>
+      <li><span class="px">✕</span>Cansaço constante que o final de semana não resolve</li>
+      <li><span class="px">✕</span>A sensação de viver apenas apagando incêndio</li>
+      <li><span class="px">✕</span>A família cresce enquanto você está sempre no hospital</li>
+      <li><span class="px">✕</span>O corpo começa a cobrar o que a rotina hospitalar exige</li>
+    </ul>
+    <div class="pain-hl">Você estudou anos para conquistar estabilidade. Mas em algum momento, <strong>liberdade e qualidade de vida ficaram para trás</strong>.<br><br>E talvez o mais pesado seja perceber que: <strong>se você para… tudo para junto.</strong></div>
+    <p style="font-size:17px;color:var(--text-mid);line-height:1.75">No fundo, você não quer abandonar a medicina.<br>Você só não quer continuar vivendo assim pelos próximos 20 anos.</p>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- TRANSIÇÃO — imagem dir -->
+<section class="sec sec--w">
+<div class="wrap-w">
+<div class="two">
+  <div>
+    <span class="tag" style="display:block;width:fit-content">A boa notícia</span>
+    <h2 style="font-size:clamp(22px,3.5vw,38px);font-weight:700;margin-bottom:18px;line-height:1.2">Existe uma forma mais inteligente<br>de <span style="color:var(--gold)">continuar vivendo da medicina.</span></h2>
+    <p style="font-size:17px;color:var(--text-soft);line-height:1.7;margin-bottom:14px">Cada vez mais médicos estão descobrindo a <strong style="color:var(--text)">perícia médica</strong> como uma atuação com mais autonomia, flexibilidade e controle da agenda.</p>
+    <div class="pills">
+      <span class="pill">✓ Sem abandonar a medicina</span>
+      <span class="pill">✓ Sem depender exclusivamente de plantões</span>
+      <span class="pill">✓ Com mais tempo para você</span>
+    </div>
+    <p style="font-size:17px;color:var(--text-soft);line-height:1.7">O <strong style="color:var(--text)">Manual da Perícia do Zero</strong> foi criado para mostrar esse caminho de forma clara, prática e estruturada.</p>
+  </div>
+  <picture>
+    <source srcset="pericia-imagem.webp" type="image/webp">
+    <img src="pericia-imagem.jpg" alt="Perícia médica" class="two-img"
+         width="450" height="338" loading="lazy" decoding="async">
+  </picture>
+</div>
+</div>
+</section>
+
+<!-- COMO FUNCIONA — horizontal -->
+<section class="sec sec--a">
+<div class="wrap-w">
+<div class="sec-head">
+  <span class="tag">Como funciona</span>
+  <h2>Um caminho simples para entender<br>e começar na perícia médica</h2>
+  <div class="divider"></div>
+</div>
+<div class="steps-row">
+  <div class="step js-fade"><div class="step-n">1</div><div class="step-card"><h3>Entenda como funciona na prática</h3><p>Descubra os modelos de atuação, tipos de perícia e como médicos estão entrando nessa área.</p></div></div>
+  <div class="step-arr">›</div>
+  <div class="step js-fade"><div class="step-n">2</div><div class="step-card"><h3>Veja como iniciar partindo do zero</h3><p>Aprenda os primeiros passos, cadastros, caminhos de formação e estrutura necessária.</p></div></div>
+  <div class="step-arr">›</div>
+  <div class="step js-fade"><div class="step-n">3</div><div class="step-card"><h3>Construa uma transição mais inteligente</h3><p>Entenda como a perícia pode reduzir a dependência de plantões e trazer mais autonomia.</p></div></div>
+  <div class="step-arr">›</div>
+  <div class="step js-fade"><div class="step-n">4</div><div class="step-card"><h3>Tenha mais tempo para o que importa</h3><p>Recupere o controle da sua agenda sem precisar abandonar a medicina.</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- PARA QUEM -->
+<section class="sec sec--w">
+<div class="wrap-w">
+<div class="sec-head">
+  <span class="tag">Para quem é</span>
+  <h2>O Manual da Perícia do Zero<br>é para médicos que…</h2>
+  <div class="divider"></div>
+</div>
+<div class="for-grid">
+  <div class="for-item js-fade"><span class="for-chk">✓</span><p>Estão cansados da rotina de plantão</p></div>
+  <div class="for-item js-fade"><span class="for-chk">✓</span><p>Querem mais autonomia profissional sem abandonar a medicina</p></div>
+  <div class="for-item js-fade"><span class="for-chk">✓</span><p>Desejam recuperar o controle da própria agenda</p></div>
+  <div class="for-item js-fade"><span class="for-chk">✓</span><p>Buscam uma atuação menos desgastante e mais estratégica</p></div>
+  <div class="for-item js-fade"><span class="for-chk">✓</span><p>Querem entender a perícia médica de forma clara e prática</p></div>
+  <div class="for-item js-fade"><span class="for-chk">✓</span><p>Procuram uma transição mais inteligente dentro da medicina</p></div>
+  <div class="for-item js-fade"><span class="for-chk">✓</span><p>Sentem que ganhar bem já não compensa viver sem tempo</p></div>
+</div>
+</div>
+</section>
+
+<!-- O QUE VOCÊ RECEBE -->
+<section class="sec sec--a">
+<div class="wrap">
+<div class="sec-head">
+  <span class="tag">O que você recebe</span>
+  <h2>Veja tudo o que você vai receber</h2>
+  <div class="divider"></div>
+</div>
+<ul class="bonus-list">
+  <li class="bonus js-fade"><span class="bonus-ico">📘</span><div class="bonus-info"><p class="bonus-t">Manual da Perícia do Zero</p><p class="bonus-d">Guia completo e estruturado para entender e iniciar na perícia médica</p></div><div class="bonus-p"><p class="bonus-old">R$97</p><p class="bonus-val">INCLUSO</p></div></li>
+  <li class="bonus js-fade"><span class="bonus-ico">🎥</span><div class="bonus-info"><p class="bonus-t">Aula: Como médicos estão reduzindo a dependência de plantões</p><p class="bonus-d">Estratégias práticas com casos reais</p></div><div class="bonus-p"><p class="bonus-old">R$47</p><p class="bonus-val">INCLUSO</p></div></li>
+  <li class="bonus js-fade"><span class="bonus-ico">✅</span><div class="bonus-info"><p class="bonus-t">Checklist: Primeiros passos para iniciar na perícia médica</p><p class="bonus-d">Roteiro passo a passo para não perder nenhuma etapa</p></div><div class="bonus-p"><p class="bonus-old">R$27</p><p class="bonus-val">INCLUSO</p></div></li>
+  <li class="bonus js-fade"><span class="bonus-ico">🗺️</span><div class="bonus-info"><p class="bonus-t">Mapa visual das áreas de atuação da perícia médica</p><p class="bonus-d">Visão completa de todas as frentes onde você pode atuar</p></div><div class="bonus-p"><p class="bonus-old">R$37</p><p class="bonus-val">INCLUSO</p></div></li>
+  <li class="bonus js-fade"><span class="bonus-ico">⚠️</span><div class="bonus-info"><p class="bonus-t">Mini aula: Os erros que atrasam médicos que querem entrar na perícia</p><p class="bonus-d">Evite as armadilhas mais comuns da transição</p></div><div class="bonus-p"><p class="bonus-old">R$47</p><p class="bonus-val">INCLUSO</p></div></li>
+  <li class="bonus js-fade"><span class="bonus-ico">📖</span><div class="bonus-info"><p class="bonus-t">Glossário da perícia médica</p><p class="bonus-d">Terminologia essencial para dominar a linguagem da área</p></div><div class="bonus-p"><p class="bonus-old">R$27</p><p class="bonus-val">INCLUSO</p></div></li>
+  <li class="bonus js-fade"><span class="bonus-ico">📄</span><div class="bonus-info"><p class="bonus-t">Modelo simples de laudo comentado</p><p class="bonus-d">Referência prática para entender como funciona na prática</p></div><div class="bonus-p"><p class="bonus-old">R$57</p><p class="bonus-val">INCLUSO</p></div></li>
+</ul>
+</div>
+</section>
+
+<!-- OFERTA 1 — mockup esq -->
+<div class="offer-wrap" id="oferta">
+<div class="wrap-w">
+<div class="offer-grid" id="checkout">
+  <div class="offer-img-col">
+    <picture>
+      <source srcset="oferta-mockup.webp" type="image/webp">
+      <img src="oferta-mockup.png" alt="Manual da Perícia do Zero" loading="lazy" decoding="async"
+           width="280" height="373" style="width:95%;max-width:430px;object-fit:contain;border-radius:var(--r);filter:drop-shadow(0 0 40px rgba(255,255,255,.26)) drop-shadow(0 10px 28px rgba(0,0,0,.40))">
+    </picture>
+  </div>
+  <div class="offer-txt">
+    <span class="offer-badge">⚡ Acesso Imediato e Vitalício</span>
+    <h2>Acesso Completo ao<br>Manual da Perícia do Zero</h2>
+    <ul class="offer-checks">
+      <li>Acesso ao Manual completo</li>
+      <li>Todos os 6 bônus inclusos</li>
+      <li>Acesso imediato após a compra</li>
+      <li>Garantia incondicional de 7 dias</li>
+    </ul>
+    <p class="price-note">Tudo isso custaria</p>
+    <p class="price-from">De R$ 339,00</p>
+    <p style="font-size:10px;color:rgba(255,255,255,.34);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Mas hoje você acessa por apenas</p>
+    <p class="price-big"><span>8x de R$</span> 9,70</p>
+    <p class="price-cash">ou R$ 67,00 à vista</p>
+    <a href="#" class="cta offer-cta">QUERO MEU ACESSO AGORA</a>
+    <p class="cta-note offer-note">🔒 Pagamento 100% seguro · Cartão ou Pix</p>
+    <div class="trust-row">
+      <span class="trust-i">⚡ Acesso imediato</span>
+      <span class="trust-i">♾️ Acesso vitalício</span>
+      <span class="trust-i">✅ Garantia 7 dias</span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- CONVERSA SÉRIA — imagem esq -->
+<section class="sec sec--a">
+<div class="wrap-w">
+<div class="two">
+  <picture style="display:block;overflow:visible">
+    <source srcset="pergunta-seria.webp" type="image/webp">
+    <img src="pergunta-seria.jpg.png" alt="Médico reflexivo" class="two-img two-img--free"
+         width="450" height="338" loading="lazy" decoding="async">
+  </picture>
+  <div>
+    <h2 class="ser-title">Pergunta séria…</h2>
+    <p class="ser-p">Até quando você pretende continuar vivendo <strong>sem controle da própria agenda?</strong></p>
+    <p class="ser-p">Porque a verdade é que:</p>
+    <ul class="ser-list">
+      <li>o cansaço só aumenta</li>
+      <li>a rotina hospitalar não desacelera</li>
+      <li>e o tempo continua passando</li>
+    </ul>
+    <p class="ser-p">Talvez você não precise abandonar a medicina.<br>Talvez só precise conhecer <strong>uma forma mais inteligente de continuar nela.</strong></p>
+    <div style="margin-top:24px">
+      <a href="#checkout" class="cta" style="margin:0">QUERO MEU ACESSO AGORA</a>
+      <p class="cta-note" style="text-align:left;margin-top:9px">Comece agora a descobrir uma forma mais inteligente de continuar vivendo da medicina.</p>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- QUEM CRIOU -->
+<section class="sec sec--w">
+<div class="wrap">
+<div class="sec-head" style="margin-bottom:32px">
+  <span class="tag">Quem criou</span>
+  <h2>Manual da Perícia do Zero</h2>
+  <div class="divider"></div>
+</div>
+<div class="expert-card">
+  <div class="expert-photo-w">
+    <div class="expert-photo">
+      <picture>
+        <source srcset="dra-caroline.webp" type="image/webp">
+        <img src="dra-caroline.jpg" alt="Dra. Caroline Daitx" loading="lazy" decoding="async" width="190" height="234">
+      </picture>
+    </div>
+    <span class="expert-badge">Dra. Caroline Daitx</span>
+  </div>
+  <div>
+    <p class="expert-tag">Criadora do Manual</p>
+    <h3 class="expert-name">Dra. Caroline Daitx</h3>
+    <p class="expert-crm">CRM-SP 194.404 · RQE 94.143 (Medicina Legal) · RQE 90.896 (Medicina do Tráfego)</p>
+    <p class="expert-bio">Médica especialista em <strong style="color:var(--text)">Medicina Legal e Perícia Médica pela USP</strong>, com pós-graduações em Medicina do Trabalho, Gestão da Qualidade e Segurança do Paciente. Atuou como médica legista, perita previdenciária, médica do SAMU e perita nomeada por Tribunais Regionais Federais.</p>
+    <p class="expert-bio">Foi Diretora Científica da Associação de Médicos Legistas do Paraná. É professora, palestrante, autora do livro <em>Alma da Perícia</em>, doutoranda pela USP Ribeirão Preto e <strong style="color:var(--text)">fundadora do CAEPE</strong> — Centro Avançado de Estudos Periciais.</p>
+    <p class="expert-bio">Sua atuação já foi destaque na série <em>Perícia Lab</em> (AXN/Sony) e em comentários técnicos para a imprensa em casos periciais complexos.</p>
+    <div class="achv-row">
+      <span class="achv">Especialista USP</span>
+      <span class="achv">Fundadora CAEPE</span>
+      <span class="achv">Doutoranda USP Ribeirão</span>
+      <span class="achv">Série AXN/Sony</span>
+      <span class="achv">Autora · Alma da Perícia</span>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- OFERTA 2 — mockup dir -->
+<section class="sec sec--a">
+<div class="wrap-w">
+<div class="offer2-grid">
+  <div class="offer2-txt">
+    <span class="offer-badge">⚡ Acesso Imediato e Vitalício</span>
+    <h2 style="font-size:clamp(17px,2.5vw,24px);font-weight:700;color:#fff;margin-bottom:17px">Tudo o que você precisa para<br>começar na perícia médica</h2>
+    <ul class="offer-checks">
+      <li>Acesso ao Manual completo</li>
+      <li>Todos os 6 bônus inclusos</li>
+      <li>Acesso imediato</li>
+      <li>Garantia de 7 dias</li>
+    </ul>
+    <p class="price-note">Tudo isso custaria</p>
+    <p class="price-from">De R$ 339,00</p>
+    <p style="font-size:10px;color:rgba(255,255,255,.34);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Mas hoje você acessa por apenas</p>
+    <p class="price-big"><span>8x de R$</span> 9,70</p>
+    <p class="price-cash">ou R$ 67,00 à vista</p>
+    <a href="#checkout" class="cta offer-cta">QUERO MEU ACESSO AGORA</a>
+    <p class="cta-note offer-note">Talvez essa seja a primeira decisão para recuperar o controle da sua agenda.</p>
+    <div class="trust-row">
+      <span class="trust-i">🔒 Compra segura</span>
+      <span class="trust-i">♾️ Acesso vitalício</span>
+      <span class="trust-i">✅ Garantia 7 dias</span>
+    </div>
+  </div>
+  <div class="offer2-img-col">
+    <picture>
+      <source srcset="oferta-mockup.webp" type="image/webp">
+      <img src="oferta-mockup.png" alt="Manual da Perícia do Zero" loading="lazy" decoding="async"
+           width="280" height="373" style="width:95%;max-width:430px;object-fit:contain;border-radius:var(--r);filter:drop-shadow(0 0 40px rgba(255,255,255,.26)) drop-shadow(0 10px 28px rgba(0,0,0,.40))">
+    </picture>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec--w">
+<div class="wrap">
+<div class="sec-head">
+  <span class="tag">Dúvidas frequentes</span>
+  <h2>Perguntas Frequentes</h2>
+  <div class="divider"></div>
+</div>
+<ul class="faq-list">
+  <li class="faq-item"><details><summary>Preciso ter experiência em perícia médica?</summary><p class="faq-body">Não. O Manual foi criado justamente para médicos que desejam entender a área e começar do zero. Toda a linguagem e estrutura foram pensadas para quem nunca teve contato com a perícia médica.</p></details></li>
+  <li class="faq-item"><details><summary>O material serve para qualquer especialidade?</summary><p class="faq-body">Sim. A perícia médica pode ser exercida por médicos de diferentes áreas e especialidades. Você não precisa ser especialista em medicina legal para começar a entender e a atuar na área.</p></details></li>
+  <li class="faq-item"><details><summary>Vou precisar abandonar a medicina assistencial?</summary><p class="faq-body">Não. A proposta do Manual é mostrar uma possibilidade de transição gradual e mais estratégica dentro da medicina. Você pode começar na perícia sem abandonar sua atuação atual.</p></details></li>
+  <li class="faq-item"><details><summary>Como vou receber o acesso?</summary><p class="faq-body">O acesso é enviado imediatamente após a confirmação da compra, diretamente no seu e-mail. Em poucos minutos você já poderá acessar todo o conteúdo.</p></details></li>
+  <li class="faq-item"><details><summary>O acesso é vitalício?</summary><p class="faq-body">Sim. Você poderá acessar o conteúdo quando e quantas vezes quiser. Não existe prazo de expiração — o acesso é permanente.</p></details></li>
+  <li class="faq-item"><details><summary>Tem garantia?</summary><p class="faq-body">Sim. Você terá 7 dias de garantia para acessar o material e decidir com tranquilidade. Caso não fique satisfeito, devolvemos 100% do seu investimento sem nenhuma burocracia.</p></details></li>
+</ul>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p class="ft-logo">CAEPE</p>
+<p class="ft-sub">Centro Avançado de Estudos Periciais</p>
+<div class="ft-links">
+  <a href="tel:+551151181151">📞 (11) 5118-1151</a>
+  <a href="mailto:contato@caepe.com.br">✉️ contato@caepe.com.br</a>
+</div>
+<p class="ft-legal">CAEPE 2025 — Todos os direitos reservados. Manual da Perícia do Zero. Centro Avançado de Estudos Periciais — CAEPE.<br><br>Este produto não garante resultados financeiros. Os resultados podem variar de acordo com dedicação, experiência e aplicação individual.</p>
+</footer>
+
+<!-- STICKY BAR mobile -->
+<div class="sticky">
+<div class="sticky-in">
+  <div class="sticky-p"><p class="sticky-s">8x de R$</p><p class="sticky-v">9,70</p></div>
+  <a href="#checkout" class="cta">GARANTIR ACESSO</a>
+</div>
+</div>
+
+<script>
+// Executa após o parse completo do HTML (evita bloquear o render)
+(function(){
+  // Animação scroll — IntersectionObserver (não bloqueia renderização)
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}
+      });
+    },{threshold:0.06,rootMargin:'0px 0px -20px 0px'});
+    document.querySelectorAll('.js-fade').forEach(function(el){io.observe(el)});
+  }else{
+    document.querySelectorAll('.js-fade').forEach(function(el){el.classList.add('visible')});
+  }
+
+  // Smooth scroll com passive listener (não bloqueia scroll)
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      const href=a.getAttribute('href');
+      const t=href&&href.length>1&&document.querySelector(href);
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+    },{passive:false});
+  });
+})();
+</script>
+</body>
+</html>
