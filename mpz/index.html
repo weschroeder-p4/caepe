@@ -335,6 +335,12 @@ footer{background:var(--text);padding:40px 0 24px;text-align:center}
   .pain-list li{font-size:15px;padding:11px 0}
 }
 
+/* === BLOCO VALOR TOTAL === */
+.total-val-wrap{background:linear-gradient(135deg,#1a2e35 0%,#1C3640 60%,#1a3038 100%);border-radius:var(--rl);padding:36px 28px;text-align:center;margin-top:32px;box-shadow:var(--sh-m)}
+.total-val-label{font-size:15px;color:rgba(255,255,255,.65);margin-bottom:10px;font-weight:500}
+.total-val-price{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,42px);font-weight:900;color:#fff;text-decoration:line-through;text-decoration-color:rgba(255,255,255,.5);opacity:.7;margin-bottom:14px}
+.total-val-sub{font-size:clamp(16px,2.5vw,20px);color:#fff;font-weight:600;line-height:1.4}
+
 /* === ANIMAÇÃO SCROLL === */
 .js-fade{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;will-change:opacity,transform}
 .js-fade.visible{opacity:1;transform:translateY(0);will-change:auto}
@@ -508,6 +514,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <li class="bonus js-fade"><span class="bonus-ico">🗺️</span><div class="bonus-info"><p class="bonus-t">Mapa Visual de Atuações da Perícia</p><p class="bonus-d">Visão completa e organizada de todas as frentes onde você pode atuar como perito médico</p></div><div class="bonus-p"><p class="bonus-old">R$37</p><p class="bonus-val">INCLUSO</p></div></li>
   <li class="bonus js-fade"><span class="bonus-ico">📖</span><div class="bonus-info"><p class="bonus-t">Glossário da Perícia Médica</p><p class="bonus-d">Terminologia essencial para dominar a linguagem da área desde o primeiro contato</p></div><div class="bonus-p"><p class="bonus-old">R$27</p><p class="bonus-val">INCLUSO</p></div></li>
 </ul>
+
+<!-- Bloco de valor total -->
+<div class="total-val-wrap js-fade">
+  <p class="total-val-label">Tudo isso custaria</p>
+  <p class="total-val-price">R$ 729,00</p>
+  <p class="total-val-sub">Mas hoje temos uma oferta muito melhor…</p>
+</div>
+
 </div>
 </section>
 
