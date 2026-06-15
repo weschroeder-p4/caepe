@@ -345,8 +345,7 @@ footer{background:var(--text);padding:40px 0 24px;text-align:center}
 .js-fade{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;will-change:opacity,transform}
 .js-fade.visible{opacity:1;transform:translateY(0);will-change:auto}
 
-/* === PERFORMANCE: content-visibility para seções abaixo do fold === */
-section.sec,.offer-wrap{content-visibility:auto;contain-intrinsic-size:0 500px}
+/* content-visibility removido: causava "tremida"/ghosting no Safari iOS durante o scroll */
 
 /* === ACESSIBILIDADE: respeita preferência de movimento reduzido === */
 @media(prefers-reduced-motion:reduce){
