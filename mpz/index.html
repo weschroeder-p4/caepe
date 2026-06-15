@@ -337,9 +337,8 @@ footer{background:var(--text);padding:40px 0 24px;text-align:center}
 .total-val-sub{font-size:clamp(16px,2.5vw,20px);color:var(--gold);font-weight:700;line-height:1.4}
 
 /* === ANIMAÇÃO SCROLL === */
-/* Animação de fade desativada temporariamente (teste de diagnóstico da tremida mobile) */
-.js-fade{opacity:1;transform:none}
-.js-fade.visible{opacity:1;transform:none}
+.js-fade{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.js-fade.visible{opacity:1;transform:translateY(0)}
 
 /* content-visibility removido: causava "tremida"/ghosting no Safari iOS durante o scroll */
 
