@@ -290,7 +290,7 @@ footer{background:var(--text);padding:40px 0 24px;text-align:center}
   .bonus-p{width:100%;text-align:left;padding-top:0}
 
   /* Oferta stack */
-  .offer-grid,.offer2-grid{grid-template-columns:1fr}
+  .offer-grid,.offer2-grid{grid-template-columns:1fr;border-radius:0;box-shadow:none;overflow:visible}
   .offer-img-col,.offer2-img-col{min-height:220px;padding:28px 20px;order:-1}
   .offer-txt,.offer2-txt{padding:28px 20px}
 
@@ -337,8 +337,9 @@ footer{background:var(--text);padding:40px 0 24px;text-align:center}
 .total-val-sub{font-size:clamp(16px,2.5vw,20px);color:var(--gold);font-weight:700;line-height:1.4}
 
 /* === ANIMAÇÃO SCROLL === */
-.js-fade{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
-.js-fade.visible{opacity:1;transform:translateY(0)}
+/* Animação de fade desativada temporariamente (teste de diagnóstico da tremida mobile) */
+.js-fade{opacity:1;transform:none}
+.js-fade.visible{opacity:1;transform:none}
 
 /* content-visibility removido: causava "tremida"/ghosting no Safari iOS durante o scroll */
 
