@@ -181,6 +181,8 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.2;color:var(
 .offer-wrap{padding:72px 0;background:var(--white)}
 .offer-grid{display:grid;grid-template-columns:1fr 1fr;background:var(--text);border-radius:var(--rl);overflow:hidden;box-shadow:var(--sh-l)}
 .offer-img-col{background:var(--text);display:flex;align-items:center;justify-content:center;padding:36px 24px;min-height:380px}
+.offer-img-col picture,.offer2-img-col picture{display:block;width:100%}
+.oferta-img{display:block;width:100%;max-width:560px;height:auto;margin:0 auto;border-radius:var(--r)}
 .offer-txt{padding:44px 38px;display:flex;flex-direction:column;justify-content:center}
 .offer-badge{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-l));color:#fff;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:40px;margin-bottom:18px;width:fit-content}
 .offer-txt h2{font-size:clamp(17px,2.5vw,24px);font-weight:700;color:#fff;margin-bottom:17px}
@@ -291,7 +293,8 @@ footer{background:var(--text);padding:40px 0 24px;text-align:center}
 
   /* Oferta stack */
   .offer-grid,.offer2-grid{grid-template-columns:1fr;border-radius:0;box-shadow:none;overflow:visible}
-  .offer-img-col,.offer2-img-col{min-height:220px;padding:28px 20px;order:-1}
+  .offer-img-col,.offer2-img-col{min-height:0;padding:20px 12px 4px;order:-1}
+  .oferta-img{max-width:100%}
   .offer-txt,.offer2-txt{padding:28px 20px}
 
   /* Expert stack */
@@ -525,9 +528,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="offer-grid" id="checkout">
   <div class="offer-img-col">
     <picture>
+      <source media="(max-width:768px)" srcset="oferta-mockup-mobile.webp" type="image/webp">
       <source srcset="oferta-mockup.webp" type="image/webp">
       <img src="oferta-mockup.png" alt="Manual da Perícia do Zero" decoding="async"
-           width="280" height="373" style="width:95%;max-width:430px;object-fit:contain;border-radius:var(--r)">
+           width="1100" height="733" class="oferta-img">
     </picture>
   </div>
   <div class="offer-txt">
@@ -649,9 +653,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="offer2-img-col">
     <picture>
+      <source media="(max-width:768px)" srcset="oferta-mockup-mobile.webp" type="image/webp">
       <source srcset="oferta-mockup.webp" type="image/webp">
       <img src="oferta-mockup.png" alt="Manual da Perícia do Zero" decoding="async"
-           width="280" height="373" style="width:95%;max-width:430px;object-fit:contain;border-radius:var(--r)">
+           width="1100" height="733" class="oferta-img">
     </picture>
   </div>
 </div>
@@ -711,6 +716,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
     },{passive:false});
   });
+
+  // Repasse de UTMs para o checkout
+  (function(){
+    var utmKeys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','fbclid','gclid'];
+    var params=new URLSearchParams(window.location.search);
+    var utmParams=new URLSearchParams();
+    utmKeys.forEach(function(k){if(params.get(k))utmParams.set(k,params.get(k))});
+    var utmStr=utmParams.toString();
+    if(!utmStr)return;
+    document.querySelectorAll('a[href*="go.carolinedaitx.com"]').forEach(function(a){
+      var url=new URL(a.href);
+      utmParams.forEach(function(v,k){url.searchParams.set(k,v)});
+      a.href=url.toString();
+    });
+  })();
 })();
 </script>
 </body>
